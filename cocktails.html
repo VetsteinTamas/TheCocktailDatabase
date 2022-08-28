@@ -10,6 +10,7 @@
       crossorigin="anonymous"
     ></script>
     <script src="index.js"></script>
+    <script src="cocktails.js" defer></script>
     <title>The Cocktail Database</title>
   </head>
   <body>
@@ -30,9 +31,7 @@
             <a href="#" class="nav__link--anchor link__hover-effect">Home</a>
           </li>
           <li class="nav__link">
-            <a
-              href="cocktails.html"
-              class="nav__link--anchor link__hover-effect"
+            <a href="#" class="nav__link--anchor link__hover-effect"
               >Find your cocktail</a
             >
           </li>
@@ -41,29 +40,48 @@
           </li>
         </ul>
       </nav>
-      <header>
-        <div class="header__container">
-          <h1 class="header__title orange">
-            The best COCKTAIL database you can find on the internet
-          </h1>
-          <h2 class="header__sub--title">FIND YOUR DREAM COCKTAIL HERE</h2>
+      <div class="container">
+        <div class="row">
+          <div class="filter__bar">
+            <div class="filter__bar--left">
+              <input
+                type="text"
+                placeholder="Search cocktails..."
+                class="filter__bar--search"
+                name="strName"
+                id="strName"
+              />
+              <button
+                class="filter__bar--button"
+                onclick="showCocktailPosts(document.getElementById('strName').value)"
+              >
+                <i class="fa-solid fa-magnifying-glass"></i>
+              </button>
+            </div>
+            <div class="filter__bar--right">
+              <button class="filter__bar--button">All alcoholic</button>
+              <button class="filter__bar--button">All non alcoholic</button>
+            </div>
+          </div>
+          <div class="cocktail__container">
+            <!-- <div class="cocktail">
+              <img
+                src="https://www.thecocktaildb.com/images/media/drink/869qr81487603278.jpg"
+                alt="cocktail__img"
+                class="cocktail__img"
+              />
+              <div class="cocktail__description">
+                <h3 class="cocktail__description--title">Tomato Tang</h3>
+                <p class="cocktail__description--isAlcoholic">Non alcoholic</p>
+                <p class="cocktail__description--category">
+                  Category: <br />
+                  <b>Other/Unknown</b>
+                </p>
+              </div>
+            </div> -->
+          </div>
         </div>
-        <div class="search__bar">
-          <input
-            class="search__bar--input"
-            placeholder="Search by name or keyword "
-            type="text"
-            name="strName"
-            id="strName"
-          />
-          <button
-            class="search__bar--button"
-            onclick="showCocktailPosts(document.getElementById('strName').value)"
-          >
-            <i class="fa-solid fa-magnifying-glass"></i>
-          </button>
-        </div>
-      </header>
+      </div>
       <img
         src="./assets/cocktail-coconut-svgrepo-com.svg"
         class="shape shape--0"

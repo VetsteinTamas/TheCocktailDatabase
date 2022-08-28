@@ -1,12 +1,40 @@
-const scaleFactor = 1 / 20;
+const strDrink = localStorage.getItem("strDrink");
+console.log(strDrink);
 
-function moveBackground(event) {
-  const shapes = document.querySelectorAll(".shape");
-  const x = event.clientX * scaleFactor;
-  const y = event.clientY * scaleFactor;
-  for (let i = 0; i < shapes.length; ++i) {
-    const isOdd = i % 2 !== 0;
-    const boolInt = isOdd ? -1 : 1;
-    shapes[i].style.transform = `translate(${x * boolInt}px,${y * boolInt}px)`;
-  }
+async function main() {
+  const cocktails = await fetch(
+    `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${strDrink}`
+  );
+  const cocktailsDataObject = await cocktails.json();
+  const cocktailsData = cocktailsDataObject["drinks"];
+  const cocktailListEl = document.querySelector(".cocktail__container");
+
+  cocktailListEl.innerHTML = cocktailsData
+    .map((cocktail) => cocktailHTML(cocktail))
+    .join("");
+}
+
+main();
+
+function cocktailHTML(cocktail) {
+  return `<div class="cocktail" onclick="showCocktailDetails(${cocktail.idDrink})">
+  <img
+    src="${cocktail.strDrinkThumb}"
+    alt="cocktail__img"
+    class="cocktail__img"
+  />
+  <div class="cocktail__description">
+    <h3 class="cocktail__description--title">${cocktail.strDrink}</h3>
+    <p class="cocktail__description--isAlcoholic">${cocktail.strAlcoholic}</p>
+    <p class="cocktail__description--category">
+      Category: <br />
+      <b>${cocktail.strCategory}</b>
+    </p>
+  </div>
+</div>`;
+}
+
+function showCocktailDetails(id) {
+  localStorage.setItem("id", id);
+  window.location.href = `cocktail.html`;
 }
