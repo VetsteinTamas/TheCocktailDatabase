@@ -1,4 +1,4 @@
-const cocktailDataEl = document.querySelector(".cocktail-list");
+const cocktailDataEl = document.querySelector(".row");
 const id = localStorage.getItem("id");
 
 async function renderCocktail(id) {
@@ -15,13 +15,54 @@ async function renderCocktail(id) {
 }
 
 function postCocktailData(cocktail) {
-  return `<div class="post">
-  <div class="post__title">
-    ${cocktail.strDrink}
+  return `
+  <div class="cocktail__textarea">
+  <div class="upperArea">
+    <div class="isAlcoholic">${cocktail.strAlcoholic}</div>
+    <h1 class="cocktail__textarea--title">
+      ${cocktail.strDrink}
+    </h1>
   </div>
-  <p class="post__body">
-  </p>
-  </div>`;
+
+  <div class="quad__div">
+    <div class="quad">
+      <h3><span class="white">Category:</span><br> ${cocktail.strCategory}</h3>
+    </div>
+    <div class="quad">
+      <h3><span class="white">Glass type:</span><br> ${cocktail.strGlass}</h3>
+    </div>
+    <div class="quad quad__column">
+      <h3>
+        <span class="white">Ingredients:</span>
+      </h3>
+      <ul class="quad__list">
+        <li class="quad__list--item"><b>Creme de Cacao</b></li>
+        <li class="quad__list--item"><b>Vodka</b></li></li>
+      </ul>
+    </div>
+    <div class="quad quad__column">
+      <h3>
+        <span class="white ingredient">Measure:</span>
+      </h3>
+      <ul class="quad__list">
+        <li class="quad__list--item"><b>1 oz white</b></li>
+        <li class="quad__list--item"><b>1 oz</b></li>
+      </ul>
+    </div>
+  </div>
+  <div class="instruction__div">
+    <p class="instruction">
+      <b>
+        ${cocktail.strInstructions}
+      </b>
+    </p>
+  </div>
+  </div>
+  <img
+            class="cocktail__textarea--img"
+            src="${cocktail.strDrinkThumb}"
+            alt=""
+          />`;
 }
 
 renderCocktail(id);

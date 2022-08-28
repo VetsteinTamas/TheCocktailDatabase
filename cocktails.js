@@ -8,10 +8,13 @@ async function main() {
   const cocktailsDataObject = await cocktails.json();
   const cocktailsData = cocktailsDataObject["drinks"];
   const cocktailListEl = document.querySelector(".cocktail__container");
-
-  cocktailListEl.innerHTML = cocktailsData
-    .map((cocktail) => cocktailHTML(cocktail))
-    .join("");
+  if (cocktailsData !== null) {
+    cocktailListEl.innerHTML = cocktailsData
+      .map((cocktail) => cocktailHTML(cocktail))
+      .join("");
+  } else {
+    cocktailListEl.innerHTML = `<h1>No results found.</h1>`;
+  }
 }
 
 main();
