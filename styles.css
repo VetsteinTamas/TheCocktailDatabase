@@ -246,58 +246,6 @@ header {
   left: 80vw;
 }
 
-@media (max-width: 768px) {
-  .nav__title {
-    font-size: 20px;
-    margin-left: 12px;
-  }
-
-  .nav__link--anchor {
-    font-size: 16px;
-    margin: 0px 12px;
-  }
-
-  .header__container {
-    margin-top: 50px;
-  }
-
-  .header__title {
-    font-size: 50px;
-  }
-
-  .header__sub--title {
-    font-size: 24px;
-  }
-}
-
-@media (max-width: 620px) {
-  .nav__title {
-    font-size: 16px;
-  }
-
-  .nav__link--anchor {
-    font-size: 12px;
-    margin: 0px 8px;
-  }
-
-  .header__title {
-    font-size: 44px;
-  }
-
-  .header__sub--title {
-    font-size: 22px;
-  }
-
-  .search__bar--input {
-    font-size: 14px;
-  }
-
-  .search__bar--button {
-    font-size: 24px;
-    padding: 16px 24px;
-  }
-}
-
 /*
 
   COCKTAILS PAGE
@@ -610,6 +558,87 @@ header {
 
 */
 
+@media (max-width: 860px) {
+  .nav__title {
+    font-size: 24px;
+    margin-left: 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav__title {
+    font-size: 20px;
+    margin-left: 12px;
+  }
+
+  .nav__link--anchor {
+    font-size: 16px;
+    margin: 0px 12px;
+  }
+
+  .header__container {
+    margin-top: 50px;
+  }
+
+  .header__title {
+    font-size: 50px;
+  }
+
+  .header__sub--title {
+    font-size: 24px;
+  }
+
+  /*
+
+  cocktails
+
+  */
+
+  .filter__bar--left {
+    margin-left: 12px;
+  }
+
+  .filter__bar--right {
+    margin-right: 12px;
+  }
+
+  .cocktail__container {
+    padding: 0px 24px;
+  }
+
+  .cocktail {
+    width: 45%;
+  }
+}
+
+@media (max-width: 620px) {
+  .nav__title {
+    font-size: 16px;
+  }
+
+  .nav__link--anchor {
+    font-size: 12px;
+    margin: 0px 8px;
+  }
+
+  .header__title {
+    font-size: 44px;
+  }
+
+  .header__sub--title {
+    font-size: 22px;
+  }
+
+  .search__bar--input {
+    font-size: 14px;
+  }
+
+  .search__bar--button {
+    font-size: 24px;
+    padding: 16px 24px;
+  }
+}
+
 @media (max-width: 480px) {
   .nav__title {
     font-size: 12px;
@@ -631,5 +660,38 @@ header {
   .shape {
     width: 20px;
     height: 20px;
+  }
+
+  .cocktail {
+    width: 100%;
+  }
+
+  .filter__bar {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .filter__bar--left {
+    width: 100%;
+  }
+
+  .filter__bar--right {
+    width: 100%;
+    justify-content: center;
+    margin-top: 12px;
+  }
+
+  .row {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .cocktail__textarea {
+    width: 100%;
+    margin-bottom: 24px;
+  }
+
+  .cocktail__textarea--img {
+    width: 100%;
   }
 }

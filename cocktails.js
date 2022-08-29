@@ -16,7 +16,7 @@ async function main() {
   //cocktail categories
   const categoriesDataObject = await categories.json();
   const categoriesData = categoriesDataObject["drinks"];
-  const categoryListEl = document.querySelector("#type");
+  let categoryListEl = document.querySelector("#type");
 
   //cocktail map
   if (cocktailsData !== null) {
@@ -28,10 +28,12 @@ async function main() {
   }
 
   //category map
-  categoryListEl.innerHTML = categoriesData
+  categoryListEl.innerHTML += categoriesData
     .map((category) => categoryHTML(category))
     .join("");
 }
+
+
 
 main();
 
