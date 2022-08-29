@@ -40,49 +40,51 @@ function postCocktailData(cocktail) {
   }
   return `
   <div class="cocktail__textarea">
+  <div class="wrapper">
   <div class="upperArea">
-    <div class="isAlcoholic">${cocktail.strAlcoholic}
-    <h1 class="cocktail__textarea--title" style="color:#242424">
+  <div class="isAlcoholic">${cocktail.strAlcoholic}
+  <h1 class="cocktail__textarea--title" style="color:#242424">
     ${cocktail.strDrink}
     </h1>
     </div>
     <a href="cocktails.html" style="color: #242424; margin-right: 36px;">
     <i class="fa-solid fa-backward"></i>
     </a>
-  </div>
+    </div>
 
-  <div class="quad__div">
-    <div class="quad">
+    <div class="quad__div">
+    <div class="quad quad__left">
       <h3><span class="white">Category:</span><br> ${cocktail.strCategory}</h3>
     </div>
-    <div class="quad">
+    <div class="quad quad__right">
     <h3><span class="white">Glass type:</span><br> ${cocktail.strGlass}</h3>
     </div>
     </div>
     <div class="ingredient__div">
       <h3>
         <span class="white">Ingredients and Measures:</span>
-      </h3>
-      <div class="ing__and__mes">
+        </h3>
+        <div class="ing__and__mes">
         <ul class="quad__list">
         ${ingredients}
         </ul>
         <ul class="quad__list">
         ${measures}
         </ul>
-      </div>
-    </div>
-  <div class="instruction__div">
-    <p class="instruction">
-      <b>
+        </div>
+        </div>
+        <div class="instruction__div">
+        <p class="instruction">
+        <b>
         ${cocktail.strInstructions}
-      </b>
-    </p>
-  </div>
-  </div>
-  
-  <img
-            class="cocktail__textarea--img"
+        </b>
+        </p>
+        </div>
+        </div>
+        </div>
+        
+        <img
+        class="cocktail__textarea--img"
             src="${cocktail.strDrinkThumb}"
             alt=""
           />`;
