@@ -47,7 +47,7 @@ function postCocktailData(cocktail) {
     ${cocktail.strDrink}
     </h1>
     </div>
-    <a href="cocktails.html" style="color: #242424; margin-right: 36px;">
+    <a href="cocktails.html" style="color: #242424; ">
     <i class="fa-solid fa-backward"></i>
     </a>
     </div>
