@@ -15,13 +15,40 @@ async function renderCocktail(id) {
 }
 
 function postCocktailData(cocktail) {
+  //ingredient for loop
+  let ingredients = "";
+  for (let i = 1; i <= 15; i++) {
+    if (cocktail[`strIngredient` + `${i}`] !== null) {
+      ingredients += `<li class="quad__list--item"><b>${
+        cocktail[`strIngredient` + `${i}`]
+      }</b></li>`;
+    } else {
+      break;
+    }
+  }
+
+  //measure for loop
+  let measures = "";
+  for (let i = 1; i <= 15; i++) {
+    if (cocktail[`strMeasure` + `${i}`] !== null) {
+      measures += `<li class="quad__list--item"><b>${
+        cocktail[`strMeasure` + `${i}`]
+      }</b></li>`;
+    } else {
+      break;
+    }
+  }
   return `
   <div class="cocktail__textarea">
   <div class="upperArea">
-    <div class="isAlcoholic">${cocktail.strAlcoholic}</div>
-    <h1 class="cocktail__textarea--title">
-      ${cocktail.strDrink}
+    <div class="isAlcoholic">${cocktail.strAlcoholic}
+    <h1 class="cocktail__textarea--title" style="color:#242424">
+    ${cocktail.strDrink}
     </h1>
+    </div>
+    <a href="cocktails.html" style="color: #242424; margin-right: 36px;">
+    <i class="fa-solid fa-backward"></i>
+    </a>
   </div>
 
   <div class="quad__div">
@@ -29,27 +56,22 @@ function postCocktailData(cocktail) {
       <h3><span class="white">Category:</span><br> ${cocktail.strCategory}</h3>
     </div>
     <div class="quad">
-      <h3><span class="white">Glass type:</span><br> ${cocktail.strGlass}</h3>
+    <h3><span class="white">Glass type:</span><br> ${cocktail.strGlass}</h3>
     </div>
-    <div class="quad quad__column">
+    </div>
+    <div class="ingredient__div">
       <h3>
-        <span class="white">Ingredients:</span>
+        <span class="white">Ingredients and Measures:</span>
       </h3>
-      <ul class="quad__list">
-        <li class="quad__list--item"><b>Creme de Cacao</b></li>
-        <li class="quad__list--item"><b>Vodka</b></li></li>
-      </ul>
+      <div class="ing__and__mes">
+        <ul class="quad__list">
+        ${ingredients}
+        </ul>
+        <ul class="quad__list">
+        ${measures}
+        </ul>
+      </div>
     </div>
-    <div class="quad quad__column">
-      <h3>
-        <span class="white ingredient">Measure:</span>
-      </h3>
-      <ul class="quad__list">
-        <li class="quad__list--item"><b>1 oz white</b></li>
-        <li class="quad__list--item"><b>1 oz</b></li>
-      </ul>
-    </div>
-  </div>
   <div class="instruction__div">
     <p class="instruction">
       <b>
@@ -58,6 +80,7 @@ function postCocktailData(cocktail) {
     </p>
   </div>
   </div>
+  
   <img
             class="cocktail__textarea--img"
             src="${cocktail.strDrinkThumb}"

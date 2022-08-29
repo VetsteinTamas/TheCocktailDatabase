@@ -5,6 +5,7 @@
   margin: 0;
   box-sizing: border-box;
   font-family: "EB Garamond", serif;
+  scroll-behavior: smooth;
 }
 
 svg {
@@ -404,11 +405,13 @@ header {
   -webkit-backdrop-filter: blur(2.5px);
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
+  transition: all 300ms ease;
 }
 
 .cocktail:hover {
   border: 1px solid #e37724;
   cursor: pointer;
+  transform: scale(1.05);
 }
 
 .cocktail__img {
@@ -464,12 +467,32 @@ header {
   border-radius: 30px;
   background: #e0dedc;
   box-shadow: 31px 31px 61px #868584, -31px -31px 61px #ffffff;
+  animation: 500ms ease-in 0s 1 slideInFromLeft;
+}
+
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromRight {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
 
 .cocktail__textarea--img {
   width: 40%;
   border-radius: 30px;
   box-shadow: 31px 31px 61px #868584, -31px -31px 61px #ffffff;
+  animation: 500ms ease-in 0s 1 slideInFromRight;
 }
 
 .isAlcoholic {
@@ -486,7 +509,15 @@ header {
 
 .upperArea {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
   width: 100%;
+}
+
+.fa-backward {
+  font-size: 40px;
+  
+  cursor: pointer;
 }
 
 .quad__div {
@@ -508,13 +539,32 @@ header {
   text-align: center;
 }
 
+.ingredient__div {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  border-radius: 20px;
+  background: #e37724;
+  box-shadow: 5px 5px 10px #5b300e, -5px -5px 10px #ffbe3a;
+  margin: 24px;
+  padding: 16px 0;
+}
+
+.ing__and__mes {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .quad__column {
   display: flex;
   flex-direction: column;
+  padding: 16px 0;
 }
 
 .quad__list {
   text-align: center;
+  margin: 0 24px;
 }
 
 .quad__list--item {
